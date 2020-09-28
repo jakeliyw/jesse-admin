@@ -1,3 +1,7 @@
+## clone
+```
+git clone https://github.com/jakeliyw/jesse-admin
+```
 ## Project setup
 ```
 yarn install
