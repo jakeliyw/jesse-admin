@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <el-container>
+    <el-container class="home-container">
       <el-header height="50px">
         <img :src="require('@/assets/logo/logo.png')" alt="logo" class="logo">
         <div class="information">
@@ -78,8 +77,6 @@
         <el-main>Main</el-main>
       </el-container>
     </el-container>
->>>>>>> dev
-  </div>
 </template>
 
 <script>
@@ -102,9 +99,11 @@ export default {
 .el-container {
   height: 100%;
 }
+.home-container{
+  height: 100vh;
+}
 .el-aside {
   background-color: #484443;
-  height: 100vh;
 }
 .information{
   display: flex;
