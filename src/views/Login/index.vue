@@ -27,7 +27,7 @@ export default {
   name: 'login',
   data () {
     return {
-      // 双休绑定账号和密码
+      // 双向绑定账号和密码
       loginForm: {
         userName: '',
         passWord: ''
