@@ -99,7 +99,7 @@ export default {
 
   .logo {
     font-size: 26px;
-    color: #eee;
+    color: #3c3f41;
     margin: 0px auto 40px auto;
     text-align: center;
     font-weight: bold;
