@@ -29,8 +29,8 @@ export default {
     return {
       // 双向绑定账号和密码
       loginForm: {
-        userName: '',
-        passWord: ''
+        userName: 'admin',
+        passWord: '312321'
       },
       // 密码黑色圈圈隐藏
       passWord: 'password',
@@ -99,7 +99,7 @@ export default {
 
   .logo {
     font-size: 26px;
-    color: #3c3f41;
+    color: white;
     margin: 0px auto 40px auto;
     text-align: center;
     font-weight: bold;
