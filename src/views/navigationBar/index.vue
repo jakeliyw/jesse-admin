@@ -1,11 +1,11 @@
 <template>
     <el-container class="home-container">
       <el-header height="50px">
-        <img :src="require('@/assets/logo/logo.png')" alt="logo" class="logo">
+        <img :src="require('@/assets/img/logo.png')" alt="logo" class="logo">
         <div class="information">
           <i class="iconfont iconxiaoxi"></i>
           <i class="iconfont iconyouxiang"></i>
-          <img :src="require('@/assets/headPortrait/headPortrait.jpg')" alt="头像" class="headPortrait">
+          <img :src="require('@/assets/img/headPortrait.jpg')" alt="头像" class="headPortrait">
           <span class="name">ID: 9527</span>
         </div>
       </el-header>
@@ -102,7 +102,7 @@ export default {
   justify-content: space-between;
 }
 .logo{
-  width: 4%;
+  width: 60px;
 }
 .el-container {
   height: 100%;
