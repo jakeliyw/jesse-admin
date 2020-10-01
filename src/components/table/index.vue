@@ -1,40 +1,26 @@
 <template>
   <div>
-    <table border="1">
-      <!--      表头-->
-      <thead>
-      <tr v-for="item in Commodity" :key="item.name">
-        <th>{{item.name}}</th>
-        <th>{{item.age}}</th>
-        <th>{{item.birth}}</th>
-        <th>{{item.iphone}}</th>
-        <th>{{item.company}}</th>
-      </tr>
-      </thead>
-      <!--      内容区域-->
-    </table>
-    <div  style="overflow: auto; height: 150px">
-      <table border="1" style="background-color: white;white-space: nowrap">
-        <tbody>
+    <div style="overflow: auto; height: 150px">
+      <table class="content" border="1">
+        <!--      表头-->
+        <thead>
         <tr>
+          <th v-for="(item,index) in cpTableHeader" :key="index">{{ item.label }}</th>
+        </tr>
+        </thead>
+        <!--      内容区域-->
+        <tbody>
+        <tr v-for="(tableData,index) in tableData" :key="index" >
+            <slot :slotData="tableData">
+            </slot>
+          <!--          步骤条区域-->
           <td>
-            dsad111111111111
+            <slot name="steps"></slot>
           </td>
+          <!--          操作-->
           <td>
-            <el-steps :active="2" align-center>
-              <el-step title="步骤1" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤2" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤3" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤4" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤2" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤3" description="这是一段很长很长很长的描述性文字"></el-step>
-              <el-step title="步骤4" description="这是一段很长很长很长的描述性文字"></el-step>
-            </el-steps>
-            <!--          <img :src="require('@/assets/img/logo.png')" alt="" class="commodity">-->
+            <slot name="button"></slot>
           </td>
-          <td>1990-9-9</td>
-          <td>13682299090</td>
-          <td>杰希科技</td>
         </tr>
         </tbody>
       </table>
@@ -45,18 +31,34 @@
 <script>
 export default {
   name: 'index',
+  props: {
+    header: { // 表格头部数据
+      type: Array,
+      required: true
+    },
+    tableData: {
+      type: Array,
+      require: true
+    }
+  },
   data () {
     return {
-      Commodity: [
-        { name: '姓名', age: '年龄', birth: '出生年月', iphone: '手机号码', company: '单位' }
-      ]
+      cpTableHeader: []
+    }
+  },
+  watch: {
+    header: {
+      handler (val) {
+        this.cpTableHeader = val
+      },
+      immediate: true,
+      deep: true
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
 table {
   /*设置相邻单元格的边框间的距离*/
   width: 100%;
@@ -67,12 +69,13 @@ table {
   text-align: center;
   border: 1px solid #ececec;
 }
-td {
+
+.content {
   white-space: nowrap;
 }
-.commodity{
+
+.commodity {
   width: 100px;
   height: 100px;
 }
-
 </style>
