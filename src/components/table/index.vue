@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="overflow: auto; height: 150px">
+    <div class="btn" :class="['btn',{'is-height':height}]">
       <table class="content" border="1">
         <!--      表头-->
         <thead>
@@ -10,17 +10,9 @@
         </thead>
         <!--      内容区域-->
         <tbody>
-        <tr v-for="(tableData,index) in tableData" :key="index" >
-            <slot :slotData="tableData">
-            </slot>
-          <!--          步骤条区域-->
-          <td>
-            <slot name="steps"></slot>
-          </td>
-          <!--          操作-->
-          <td>
-            <slot name="button"></slot>
-          </td>
+        <tr v-for="(tableData,index) in tableData" :key="index">
+          <slot :slotData="tableData">
+          </slot>
         </tr>
         </tbody>
       </table>
@@ -39,6 +31,10 @@ export default {
     tableData: {
       type: Array,
       require: true
+    },
+    height: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -77,5 +73,11 @@ table {
 .commodity {
   width: 100px;
   height: 100px;
+}
+.btn{
+  overflow: auto;
+}
+.btn.is-height{
+  height: 150px;
 }
 </style>

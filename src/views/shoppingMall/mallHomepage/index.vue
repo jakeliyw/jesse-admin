@@ -1,78 +1,118 @@
 <template>
   <div class="content">
-    <jc-title :titleLeft="titleLeft" :title-right="titleRight"></jc-title>
-    <jc-table
-      :header="tableHeader"
-      :tableData="tableList"
-    >
-      <template v-slot="slotProps">
-        <td>
-          {{ slotProps.slotData.id }}
-        </td>
-        <td>
-          {{ slotProps.slotData.orderNumber }}
-        </td>
-        <td>
-          {{ slotProps.slotData.placeAnOrder }}
-        </td>
-        <td>
-          {{ slotProps.slotData.deliveryDate }}
-        </td>
-      </template>
-      <template v-slot:steps>
-        <el-steps :active="2" align-center class="font-style">
-          <el-step title="步骤1" description="2020.6.20"></el-step>
-          <el-step title="步骤2" description="2020.6.20"></el-step>
-          <el-step title="步骤3" description="2020.6.20"></el-step>
-          <el-step title="步骤4" description="2020.6.20"></el-step>
-          <el-step title="步骤5" description="2020.6.20"></el-step>
-          <el-step title="步骤6" description="2020.6.20"></el-step>
-          <el-step title="步骤7" description="2020.6.20"></el-step>
-        </el-steps>
-      </template>
-      <template v-slot:button>
-        <el-button type="primary" size="mini">点我</el-button>
-        <el-button type="info" size="mini">确定</el-button>
-      </template>
-    </jc-table>
+    <jc-title titleLeft="主推产品" title-right="更多产品"></jc-title>
+    <div class="layout">
+      <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
+        <img :src="item.img" alt="">
+        <span class="trade-name">{{item.tradeName}}</span>
+        <span class="small-name">{{item.smallName}}</span>
+        <span class="money">{{item.money}}</span>
+        <el-button size="mini" round type="info">加入收藏</el-button>
+      </div>
+    </div>
+    <jc-title titleLeft="爆款产品" title-right="更多产品"></jc-title>
+    <div class="layout">
+      <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
+        <img :src="item.img" alt="">
+        <span class="trade-name">{{item.tradeName}}</span>
+        <span class="small-name">{{item.smallName}}</span>
+        <span class="money">{{item.money}}</span>
+        <el-button size="mini" round type="info">加入收藏</el-button>
+      </div>
+    </div>
+    <jc-title titleLeft="畅销产品" title-right="更多产品"></jc-title>
+    <div class="layout">
+      <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
+        <img :src="item.img" alt="">
+        <span class="trade-name">{{item.tradeName}}</span>
+        <span class="small-name">{{item.smallName}}</span>
+        <span class="money">{{item.money}}</span>
+        <el-button size="mini" round type="info">加入收藏</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import jcTitle from '@/components/title'
-import jcTable from '@/components/table'
 
 export default {
   name: 'index',
   components: {
-    jcTitle,
-    jcTable
+    jcTitle
   },
   data () {
     return {
-      titleLeft: '售后订单',
-      titleRight: '',
-      // '序号', '订单号', '下单时间', '预计交货期', '订单状态', '操作'
-      tableHeader: [
-        { label: '序号' },
-        { label: '订单号' },
-        { label: '下单时间' },
-        { label: '预计交货期' },
-        { label: '订单状态' },
-        { label: '操作' }
-      ],
-      tableList: [
+      commodityData: [
         {
           id: 1,
-          orderNumber: '9999',
-          placeAnOrder: '2020.6.20',
-          deliveryDate: '2020.8.20'
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
         },
         {
           id: 2,
-          orderNumber: '13213',
-          placeAnOrder: '2020.6.20',
-          deliveryDate: '2020.8.20'
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 3,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 4,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 5,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 6,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 7,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 8,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 9,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
+        },
+        {
+          id: 10,
+          img: require('@/assets/img/stool.jpg'),
+          tradeName: '大厦及大苏dasds大厦及大苏dasds大厦及大苏dasds',
+          smallName: 'dsadsadsadsadas',
+          money: 50
         }
       ]
     }
@@ -84,8 +124,38 @@ export default {
 .content {
   @include bgColor;
 }
-
-.font-style ::v-deep .el-step__title {
-  font-size: 12px;
+.layout{
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  .commodity{
+    width: 170px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .trade-name{
+    font-size: 14px;
+    @include commodity;
+  }
+  .small-name{
+    font-size: 12px;
+    @include commodity;
+  }
+  .money{
+    font-size: 16px;
+    color: red;
+    @include commodity;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>

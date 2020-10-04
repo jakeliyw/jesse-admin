@@ -36,7 +36,7 @@ export default {
     padding-left: 10px;
   }
   .title-right{
-    color: #ffd04b;
+    color: white;
     padding-right: 10px;
   }
 }

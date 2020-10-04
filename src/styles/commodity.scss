@@ -1,0 +1,7 @@
+@mixin commodity  {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 140px;
+  text-align: center;
+}
