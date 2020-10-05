@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <jc-title titleLeft="主推产品" title-right="更多产品"></jc-title>
+    <jc-title titleLeft="主推产品" titleHref="更多产品"></jc-title>
     <div class="layout">
       <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
         <img :src="item.img" alt="">
@@ -10,7 +10,7 @@
         <el-button size="mini" round type="info">加入收藏</el-button>
       </div>
     </div>
-    <jc-title titleLeft="爆款产品" title-right="更多产品"></jc-title>
+    <jc-title titleLeft="爆款产品" titleHref="更多产品"></jc-title>
     <div class="layout">
       <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
         <img :src="item.img" alt="">
@@ -20,7 +20,7 @@
         <el-button size="mini" round type="info">加入收藏</el-button>
       </div>
     </div>
-    <jc-title titleLeft="畅销产品" title-right="更多产品"></jc-title>
+    <jc-title titleLeft="titleLeft" titleHref="更多产品"></jc-title>
     <div class="layout">
       <div class="commodity" v-for="(item,id) of commodityData.slice(0,8)" :key="id">
         <img :src="item.img" alt="">
@@ -43,6 +43,8 @@ export default {
   },
   data () {
     return {
+      titleHref: '更多产品',
+      titleLeft: '畅销产品',
       commodityData: [
         {
           id: 1,
@@ -142,16 +144,22 @@ export default {
   }
   .trade-name{
     font-size: 14px;
-    @include commodity;
+    @include ellipsis;
+    width: 140px;
+    text-align: center;
   }
   .small-name{
     font-size: 12px;
-    @include commodity;
+    width: 140px;
+    text-align: center;
+    @include ellipsis;
   }
   .money{
     font-size: 16px;
     color: red;
-    @include commodity;
+    text-align: center;
+    width: 140px;
+    @include ellipsis;
   }
   img{
     width: 100px;

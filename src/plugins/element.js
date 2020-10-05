@@ -11,7 +11,10 @@ import {
   Menu,
   Submenu,
   Steps,
-  Step
+  Step,
+  Form,
+  FormItem,
+  Message
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -27,3 +30,7 @@ Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(Steps)
 Vue.use(Step)
+Vue.use(Form)
+Vue.use(FormItem)
+
+Vue.prototype.$message = Message

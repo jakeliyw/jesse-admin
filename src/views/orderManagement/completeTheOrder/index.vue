@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <jc-title :titleLeft="titleLeft" :title-right="titleRight"></jc-title>
+    <jc-title :titleLeft="titleLeft"></jc-title>
     <jc-table
       :header="tableHeader"
       :tableData="tableList"
@@ -51,7 +51,6 @@ export default {
   data () {
     return {
       titleLeft: '售后订单',
-      titleRight: '',
       // '序号', '订单号', '下单时间', '预计交货期', '订单状态', '操作'
       tableHeader: [
         { label: '序号' },
@@ -88,9 +87,5 @@ export default {
 <style scoped lang="scss">
 .content {
   @include bgColor;
-}
-
-.font-style ::v-deep .el-step__title {
-  font-size: 12px;
 }
 </style>

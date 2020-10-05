@@ -63,7 +63,7 @@ table {
   border-collapse: collapse;
   background-color: white;
   text-align: center;
-  border: 1px solid #ececec;
+  border: 1px solid $borderColor;
 }
 
 .content {

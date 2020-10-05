@@ -1,7 +1,8 @@
 <template>
   <div class="bg-color">
-    <span class="title-left">{{titleLeft}}</span>
-    <span class="title-right">{{titleRight}}</span>
+    <span class="title-left">{{ titleLeft }}</span>
+    <span class="title-right" v-if="titleRight">{{ titleRight }}</span>
+    <span @click="more" class="title-href" v-else>{{ titleHref }}</span>
   </div>
 </template>
 
@@ -17,6 +18,15 @@ export default {
     titleRight: {
       type: String,
       default: ''
+    },
+    titleHref: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    more () {
+      this.$router.push({ name: 'hehe' })
     }
   }
 }
@@ -35,9 +45,19 @@ export default {
     color: #ffd04b;
     padding-left: 10px;
   }
-  .title-right{
+
+  .title-right {
     color: white;
     padding-right: 10px;
+  }
+
+  .title-href {
+    color: white;
+    padding-right: 10px;
+    cursor:pointer;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
 </style>

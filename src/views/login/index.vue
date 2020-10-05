@@ -16,7 +16,7 @@
             <i slot="suffix" :class="icon" @click="showPass"></i>
           </el-input>
         </el-form-item>
-        <el-button type="primary" class="btn-login">登录</el-button>
+        <el-button type="primary" class="btn-login" @click="login">登录</el-button>
       </el-form>
     </div>
   </div>
@@ -34,8 +34,10 @@ export default {
       },
       // 密码黑色圈圈隐藏
       passWord: 'password',
+      socket: null,
       // 用于更换Input中的图标
       icon: 'el-input__icon el-icon-view',
+      user: '', // 用户
       // 限制条件
       rules: {
         userName: [
@@ -67,6 +69,15 @@ export default {
       }
     }
   },
+  mounted () {
+    // 连接socket.io服务
+    this.socket = this.$io('http://localhost:3000')
+    // 监听服务器返回的用户ID
+    this.socket.on('loginSuccess', data => {
+      this.user = data
+      this.$store.commit('user/userUpdate', this.user)
+    })
+  },
   methods: {
     showPass () {
       if (this.passWord === 'text') {
@@ -77,6 +88,18 @@ export default {
         this.passWord = 'text'
         this.icon = 'el-input__icon el-icon-loading'
       }
+    },
+    // 跳转登录页
+    login () {
+      if (!this.loginForm.userName.trim()) {
+        this.$message.warning('用户名不能为空')
+        return
+      }
+      // 暴露登录事件
+      this.socket.emit('login', {
+        username: this.loginForm.userName
+      })
+      this.$router.push({ name: 'mallHomepage' })
     }
   }
 }

@@ -6,7 +6,7 @@
           <i class="iconfont iconxiaoxi"></i>
           <i class="iconfont iconyouxiang"></i>
           <img :src="require('@/assets/img/headPortrait.jpg')" alt="头像" class="headPortrait">
-          <span class="name">ID: 9527</span>
+          <span class="name">ID: {{userId}}</span>
         </div>
       </el-header>
       <el-container>
@@ -90,12 +90,20 @@
 <script>
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  data () {
+    return {
+      userId: ''
+    }
+  },
+  mounted () {
+    this.userId = this.$store.state.user.user.username
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/iconfont/iconfont";
+@import "@/assets/information/iconfont";
 .el-header{
   display: flex;
   align-items: center;
@@ -128,8 +136,9 @@ export default {
     margin-right: 10px;
   }
   .name{
-    font-family: 微软雅黑;
     color: #666;
+    @include ellipsis;
+    width: 150px;
   }
 }
 .el-menu {
